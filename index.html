@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NextBit Auto ID</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Your User ID:</h2>
+  <p id="user-id-display" style="font-weight: bold; font-size: 20px;"></p>
+
+  <script>
+    let userId = localStorage.getItem("nextbit_user_id");
+
+    if (!userId) {
+      userId = "NB-" + crypto.randomUUID(); // Or use Date.now() + Math.random()
+      localStorage.setItem("nextbit_user_id", userId);
+    }
+
+    document.getElementById("user-id-display").textContent = userId;
+  </script>
+</body>
+</html>
